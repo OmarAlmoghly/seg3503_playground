@@ -2,27 +2,49 @@
 
 ## Exercice 1 – Tests manuels (user-registration-app)
 
-L'application a été exécutée via `java -jar user-registration-app-0.1.0.jar` puis testée sur `http://localhost:8080/`.
+L'application a été exécutée via :
 
-| Cas de Test | Résultats Escomptés | Résultats Actuels | Verdict |
-|-------------|--------------------|--------------------|---------|
-| TC-R01 : Tous les champs valides remplis | Inscription réussie | Inscription réussie | ✅ Succès |
-| TC-R02 : Champ UserName vide | Message d'erreur (champ requis) | Message d'erreur | ✅ Succès |
-| TC-R03 : Email sans `@` | Message d'erreur (format invalide) | Message d'erreur | ✅ Succès |
-| TC-R04 : Age = 0 | Inscription acceptée ou erreur selon spec | À vérifier | Non-concluant |
-| TC-R05 : Age négatif | Message d'erreur | Message d'erreur | ✅ Succès |
-| TC-R06 : Age = 999 (hors plage) | Message d'erreur | Message d'erreur | ✅ Succès |
+Puis testée sur `http://localhost:8080/`.
 
-> **Note** : Remplacer les résultats actuels par ceux observés lors de l'exécution réelle et joindre les captures dans `assets/`.
+| Cas de Test | Entrée | Résultats Escomptés | Résultats Actuels | Verdict |
+|-------------|--------|--------------------|--------------------|---------|
+| TC-R01 : Tous les champs valides | UserName=OmarAlmoghly, FirstName=john, LastName=doe, Email=john@test.com, Age=25 | Inscription réussie | "Congratulations john doe! You are now a member of our site." | ✅ Succès |
+| TC-R02 : UserName vide | UserName vide, reste valide | Erreur sur UserName | "Wrong UserName format - Size of UserName must be between 6 and 12" | ✅ Succès |
+| TC-R03 : Email invalide (sans @) | Email=johntest.com | Erreur sur Email | "Wrong Email format" | ✅ Succès |
+| TC-R04 : Age = 0 | Age=0 | Erreur (age invalide) | "must be greater than or equal to 18" | ✅ Succès |
+| TC-R05 : Age négatif | Age=-5 | Erreur (age invalide) | "must be greater than or equal to 18" | ✅ Succès |
+| TC-R06 : Age trop grand | Age=999 | Erreur (age invalide) | "must be less than or equal to 64" | ✅ Succès |
+| TC-R07 : Tous les champs vides | Tout vide | Erreurs sur tous les champs | "Wrong UserName format", "Wrong Email format", "Age is mandatory", "Wrong Postal Code format" | ✅ Succès |
+
+### Screenshots
+
+**TC-R01 – Succès inscription**
+![TC-R01](assets/Screenshot 2026-06-07 033520.png)
+
+**TC-R02 – UserName vide**
+![TC-R02](assets/Screenshot 2026-06-07 033559.png)
+
+**TC-R03 – Email invalide**
+![TC-R03](assets/Screenshot 2026-06-07 034323.png)
+
+**TC-R04 – Age = 0**
+![TC-R04](assets/Screenshot 2026-06-07 034528.png)
+
+**TC-R05 – Age négatif**
+![TC-R05](assets/Screenshot 2026-06-07 034551.png)
+
+**TC-R06 – Age trop grand**
+![TC-R06](assets/Screenshot 2026-06-07 034601.png)
+
+**TC-R07 – Tous les champs vides**
+![TC-R07](assets/Screenshot 2026-06-07 034630.png)
 
 ---
 
 ## Exercice 2 – Tests JUnit pour `nextDate`
 
-### Tableau des cas de test
-
-| TC | Entrée (y, m, d) | Sortie Escomptée (y, m, d) | Type |
-|----|-------------------|---------------------------|------|
+| TC | Entrée (y, m, d) | Sortie Escomptée | Type |
+|----|------------------|-----------------|------|
 | 01 | 1700, 06, 20 | 1700, 06, 21 | OK |
 | 02 | 2005, 04, 15 | 2005, 04, 16 | OK |
 | 03 | 1901, 07, 20 | 1901, 07, 21 | OK |
@@ -39,37 +61,14 @@ L'application a été exécutée via `java -jar user-registration-app-0.1.0.jar`
 | 14 | 3453, 01, 31 | 3453, 02, 01 | OK |
 | 15 | 3456, 12, 31 | 3457, 01, 01 | OK |
 | 16 | 1500, 02, 31 | `IllegalArgumentException` | Exception |
-| 17 | 1500, 02, 29 | `IllegalArgumentException` | Exception (1500 non-bissextile) |
+| 17 | 1500, 02, 29 | `IllegalArgumentException` | Exception |
 | 18 | -1, 10, 20 | `IllegalArgumentException` | Exception |
 | 19 | 1458, 15, 12 | `IllegalArgumentException` | Exception |
 | 20 | 1975, 06, -50 | `IllegalArgumentException` | Exception |
 
 ### Fichiers créés
 
-- **`DateTest.java`** — 20 tests JUnit 5 explicites (un `@Test` par cas)
-- **`DateNextDateOkTest.java`** — Tests JUnit 4 paramétrés pour TC01–TC15 (pas d'exception)
-- **`DateNextDateExceptionTest.java`** — Tests JUnit 4 paramétrés pour TC16–TC20 (exception attendue)
+- **`DateTest.java`** — 20 tests JUnit 5 explicites
+- **`DateNextDateOkTest.java`** — tests JUnit 4 paramétrés pour TC01–TC15
+- **`DateNextDateExceptionTest.java`** — tests JUnit 4 paramétrés pour TC16–TC20
 
-### Capture d'exécution
-
-![Résultats des tests](assets/tests_results.png)
-
----
-
-## Structure du dépôt
-
-```
-seg3103_playground/
-├── lab01/
-└── lab02/
-    ├── ecs/
-    │   ├── Date.java
-    │   ├── DateTest.java
-    │   ├── DateNextDateOkTest.java
-    │   └── DateNextDateExceptionTest.java
-    ├── registration/
-    │   └── user-registration-app-0.1.0.jar
-    ├── assets/
-    │   └── tests_results.png
-    └── README.md
-```
