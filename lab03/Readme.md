@@ -12,13 +12,13 @@ Couverture initiale avec les tests existants : **85% instructions, 70% branches*
 
 ## Date - Couverture avant refactoring
 
-![Couverture avant refactoring](assets/date_coverage_before.png)
+![Couverture avant refactoring](assets/date_coverage_before_refactoring.jpeg)
 
 Couverture initiale : **91% instructions, 79% branches**.
 
 ## Date - Couverture après refactoring
 
-![Couverture après refactoring](assets/date_coverage_after_refactoring.png)
+![Couverture après refactoring](assets/date_coverage_after_refactoring.jpeg)
 
 Couverture après refactoring : **85% instructions, 79% branches**.
 
