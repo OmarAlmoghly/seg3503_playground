@@ -1,16 +1,16 @@
-# SEG3503 – Lab 02 : Classes d'équivalence
+﻿# SEG3503 – Lab 02 : Classes d'équivalence
 
 ## Exercice 1
 
 | Cas de Test | Résultats Escomptés | Résultats Actuels | Verdict |
 |-------------|--------------------|--------------------|---------|
-| TC-R01 : Tous les champs valides | accepted | ![TC-R01](assets/Screenshot 2026-06-07 033520.png) | Pass |
-| TC-R02 : UserName vide | erreur UserName | ![TC-R02](assets/Screenshot 2026-06-07 033559.png) | Pass |
-| TC-R03 : Email invalide | erreur Email | ![TC-R03](assets/Screenshot 2026-06-07 034323.png) | Pass |
-| TC-R04 : Age = 0 | erreur Age | ![TC-R04](assets/Screenshot 2026-06-07 034528.png) | Pass |
-| TC-R05 : Age négatif | erreur Age | ![TC-R05](assets/Screenshot 2026-06-07 034551.png) | Pass |
-| TC-R06 : Age trop grand | erreur Age | ![TC-R06](assets/Screenshot 2026-06-07 034601.png) | Pass |
-| TC-R07 : Tous vides | erreurs multiples | ![TC-R07](assets/Screenshot 2026-06-07 034630.png) | Pass |
+| TC-R01 : Tous les champs valides | accepted | ![TC-R01](assets/Screenshot_2026-06-07_033520.png) | Pass |
+| TC-R02 : UserName vide | erreur UserName | ![TC-R02](assets/Screenshot_2026-06-07_033559.png) | Pass |
+| TC-R03 : Email invalide | erreur Email | ![TC-R03](assets/Screenshot_2026-06-07_034323.png) | Pass |
+| TC-R04 : Age = 0 | erreur Age | ![TC-R04](assets/Screenshot_2026-06-07_034528.png) | Pass |
+| TC-R05 : Age négatif | erreur Age | ![TC-R05](assets/Screenshot_2026-06-07_034551.png) | Pass |
+| TC-R06 : Age trop grand | erreur Age | ![TC-R06](assets/Screenshot_2026-06-07_034601.png) | Pass |
+| TC-R07 : Tous vides | erreurs multiples | ![TC-R07](assets/Screenshot_2026-06-07_034630.png) | Pass |
 
 ## Exercice 2
 
