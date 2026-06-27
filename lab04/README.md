@@ -1,6 +1,6 @@
 # Lab 04 - Test-Driven Development (FizzBuzz)
 
-Auteur : Omar (travail individuel)
+Auteur : Omar Almoghly
 
 ## Resume
 
